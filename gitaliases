@@ -1,0 +1,23 @@
+# vim: set filetype=gitconfig
+#
+# Some generic git aliases which may be of use to many folks. These aliases
+# can be included as part of your .gitconfig thusly:
+#
+# [include]
+#   path = ~/somewhere/gitaliases
+#
+# The aliases are:
+#
+# * pullall - Pulls a base repository (using a rebase for a clean history) and
+#   recursively updates all referenced submodules also.
+#
+# (Based on this StackOverflow answer:
+# http://stackoverflow.com/a/19095988/27641)
+#
+# * remove-gitignored - Based on a clean working copy, removes all files and
+#   adds them back again, which has the effect of "de-tracking" any files which
+#   "should" be ignored by .gitignore rules, but currently aren't.
+
+[alias]
+	pullall = !git pull --rebase && git submodule update --init --recursive
+	remove-gitignored = !git rm -r --cached . && git add .
