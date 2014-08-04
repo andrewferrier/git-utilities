@@ -21,4 +21,3 @@
 [alias]
 	pullall = !git pull --rebase && git submodule update --init --recursive
 	remove-gitignored = !git rm -r --cached . && git add .
-        commit-patch = !git add -i -p && git commit -v
