@@ -16,7 +16,12 @@
 #
 # * remove-gitignored - Based on a clean working copy, removes all files and
 #   adds them back again, which has the effect of "de-tracking" any files which
-#   "should" be ignored by .gitignore rules, but currently aren't.
+#   "should" be ignored by .gitignore rules, but currently aren't. Does not
+#   commit anything, so you can double-check what it's done and then commit.
+#
+# FIXME: remove-gitignored doesn't work on submodules that are currently not
+# checked out in the local copy but should nevertheless be part of the main
+# repo.
 
 [alias]
 	pullall = !git pull --rebase && git submodule update --init --recursive
