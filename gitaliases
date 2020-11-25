@@ -8,6 +8,10 @@
 #
 # The aliases are:
 #
+# * findpull - Find all the git repos which are direct children of the current
+#   directory, and run pull on each. Based on
+#   https://medium.com/@codenameyau/updating-multiple-repos-with-one-command-9768c8cdfe46.
+#
 # * pullall - Pulls a base repository (using a rebase for a clean history) and
 #   recursively updates all referenced submodules also.
 #
@@ -24,5 +28,6 @@
 # repo.
 
 [alias]
+	findpull = !sh -c 'find . -maxdepth 2 -name .git -type d | sort | rev | cut -c 6- | rev | xargs -t -I {} git -C {} pull --rebase'
 	pullall = !git pull --rebase && git submodule foreach 'git pull --rebase'
 	remove-gitignored = !git rm -r --cached . && git add .
