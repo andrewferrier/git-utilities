@@ -1,4 +1,4 @@
-# vim: set filetype=gitconfig
+# vim: set ft=gitconfig:
 #
 # Some generic git aliases which may be of use to many folks. These aliases
 # can be included as part of your .gitconfig thusly:
